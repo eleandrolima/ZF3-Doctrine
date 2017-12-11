@@ -72,9 +72,6 @@ return [
                     'Blog\Entity' => 'Blog_driver'
                 ]
             ]
-        ],
-        //'fixtures' => [
-        //    'BlogFixture' => __DIR__ . '/../src/Fixture'
-        //]
+        ]
     ]
 ];

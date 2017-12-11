@@ -2,9 +2,16 @@
 
 namespace Blog\Controller;
 
+use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator as DoctrineAdapter;
+use Doctrine\ORM\Tools\Pagination\Paginator as ORMPaginator;
+use Zend\Paginator\Paginator;
+
+use Blog\Entity\Post;
 use Blog\Form\CommentForm;
+
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -40,8 +47,17 @@ class PostController extends AbstractActionController
 
     public function indexAction()
     {
+        $page = $this->params()->fromQuery('page', 1);
+
+        $query = $this->entityManager->getRepository(Post::class)->findPublishedPosts();
+
+        $adapter = new DoctrineAdapter(new ORMPaginator($query, false));
+        $paginator = new Paginator($adapter);
+        $paginator->setDefaultItemCountPerPage(2);        
+        $paginator->setCurrentPageNumber($page);
+
         return new ViewModel([
-            'posts' => $this->postRepository->findAll()
+            'posts' => $paginator
         ]);
     }
 

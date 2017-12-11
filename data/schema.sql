@@ -1,8 +1,6 @@
 CREATE TABLE post
 ( 
-	id INTEGER PRIMARY KEY AUTOINCREMENT, 
-	title varchar(100) NOT NULL, 
-	content TEXT NOT NULL
+	id INTEGER PRIMARY KEY AUTOINCREMENT, title varchar(100) NOT NULL, 	content TEXT NOT NULL
 );
 
 insert into post(title, content) values('Post 1', 'Content 1');
@@ -12,9 +10,7 @@ insert into post(title, content) values('Post 4', 'Content 4');
 
 CREATE TABLE comments
 (
-  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  content TEXT NOT NULL,
-  post_id INTEGER NOT NULL
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, content TEXT NOT NULL, post_id INTEGER NOT NULL
 );
 
 insert into comments(content, post_id) values('Comentario 1', 1);
@@ -33,14 +29,3 @@ CREATE TABLE users
 
 INSERT INTO users(username, password, full_name) 
 	values('luiz@schoolofnet.com','$2y$10$95j.s/9nI1AkhcmAreJlIOmYvGck3z5KHuWkbeiloBsgxyrsyEofC', 'Luiz Carlos');
-
-/** Produto **/
-CREATE TABLE produto 
-( 
-	id INTEGER PRIMARY KEY AUTOINCREMENT, descricao varchar(100) NOT NULL, valor float NOT NULL
-);
-
-CREATE TABLE categoria 
-(
-	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, descricao TEXT NOT NULL, produto_id INTEGER NOT NULL
-);

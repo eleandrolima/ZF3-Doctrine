@@ -8,7 +8,7 @@ return array(
             'orm_default' => array(
                 'driverClass' => \Doctrine\DBAL\Driver\PDOSqlite\Driver::class,
                 'params' => array(
-                    'path' => sprintf('%s/data/blog.db', realpath(getcwd()))
+                    'path' => sprintf('%s/data/blog2.db', realpath(getcwd()))
                     //'host' => 'localhost',
                     //'port' => '3306',
                     //'driverOptions' => [

@@ -22,6 +22,11 @@ $this->headTitle("Blog");
                 </li>
             <?php endforeach; ?>
 
+            <?= $this->paginationControl($posts,
+                    'Sliding',
+                    'blog/partial/paginator', 
+                    array('route' => 'site-post')); ?>
+
         </ul>
     </div>
 

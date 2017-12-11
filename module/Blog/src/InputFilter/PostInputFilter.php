@@ -9,7 +9,6 @@ use Zend\Validator\NotEmpty;
 
 class PostInputFilter extends InputFilter
 {
-
     public function __construct()
     {
         $this->add([
@@ -52,6 +51,4 @@ class PostInputFilter extends InputFilter
             ]
         ]);
     }
-
-
 }

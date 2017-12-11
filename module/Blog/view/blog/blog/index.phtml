@@ -29,4 +29,10 @@ $this->headTitle("Blog");
             </td>
         </tr>
     <?php endforeach; ?>
+
 </table>
+
+<?= $this->paginationControl($posts,
+                    'Sliding',
+                    'blog/partial/paginator', 
+                    array('route' => 'admin-blog/post')); ?>
